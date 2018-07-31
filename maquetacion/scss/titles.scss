@@ -1,19 +1,21 @@
 .titles-content {
   position: relative;
   min-height:90px;
-}
 
-.titles-decoration {
-  position: absolute;
-  background: url('./assets/triangle.svg') left center/contain no-repeat;  
-  width: 70px;
-  height: 90px;
+  &::after {
+    content: '';
+    position: absolute;
+    background: url('./assets/triangle.svg') left center/contain no-repeat;  
+    width: 70px;
+    height: 90px;
+  }
 }
 
 .titles-text {
   position: absolute;
   width: 100%;
-  left: 5%;
-  top: 40%;
+  left: 11%;
+  top: 41%;
   font-size: 18px;
+  z-index: 2;
 }
