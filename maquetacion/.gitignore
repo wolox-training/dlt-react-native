@@ -1,5 +1,6 @@
 *.css
 *.css.map
-*/.scss-cache/
-*/.sass-cache
+**/.scss-cache/
+***/.sass-cache
 **/.DS_Store
+.DS_Store
