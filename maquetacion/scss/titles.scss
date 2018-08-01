@@ -1,25 +1,17 @@
 .titles {
-  position: relative;
-  margin: 25px;
-  min-height:90px;
+  margin: 30px;
+  min-height: 90px;
+  padding: 30px;
   width: 100%;
   
-  &::after {
+  &::before {
     content: '';
-    position: absolute;
-    background: url('./assets/triangle.svg') left center/contain no-repeat;  
-    width: 70px;
+    background: url(./assets/triangle.svg) left center/contain no-repeat;
     height: 90px;
-  }
-    
-  .titles-text {
+    left: 8px;
     position: absolute;
-    width: 100%;
-    left: 51px;
-    top: 40px;  
-    font-size: 18px;
-    z-index: 2;
+    top: 20px;
+    width: 70px;
+    z-index: -1;
   }
 }
-    
-  
