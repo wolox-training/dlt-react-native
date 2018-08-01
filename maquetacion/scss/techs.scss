@@ -43,9 +43,44 @@
       justify-content: space-evenly;
       
       .tech-card-logo {
-        background: url('./assets/tech-logos/react_icon.svg') center/contain no-repeat;
         height:100px;
         width: 100px;
+
+        &.react-logo {
+          background: url('./assets/tech-logos/react_icon.svg') center/contain no-repeat;
+        }
+
+        &.angular-logo {
+          background: url('./assets/tech-logos/angular_icon.svg') center/contain no-repeat;
+        }
+
+        &.vue-logo {
+          background: url('./assets/tech-logos/vue_icon.svg') center/contain no-repeat;
+        }
+
+        &.elm-logo {
+          background: url('./assets/tech-logos/elm_icon.svg') center/contain no-repeat;
+        }
+
+        &.polymer-logo {
+          background: url('./assets/tech-logos/polymer_icon.svg') center/contain no-repeat;
+        }
+
+        &.rails-logo {
+          background: url('./assets/tech-logos/rails_icon.png') center/contain no-repeat;
+        }
+
+        &.node-logo {
+          background: url('./assets/tech-logos/express_icon.svg') center/contain no-repeat;
+        }
+
+        &.net-logo {
+          background: url('./assets/tech-logos/aspnet_icon.png') center/contain no-repeat;
+        }
+
+        &.django-logo {
+          background: url('./assets/tech-logos/django_icon.svg') center/contain no-repeat;
+        }
       }
       
       .tech-card-name {
