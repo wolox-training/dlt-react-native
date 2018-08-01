@@ -1,4 +1,5 @@
-.tech-card-content {
+.tech-card {
+  align-items: center;
   background-color: $earls-green;
   border-radius: 5px;
   display: flex;
@@ -21,26 +22,19 @@
     z-index: -1;
   }
 
-  .tech-card-header {
-    align-items: center;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-evenly;
+  .tech-card-logo {
+    width: 100px;
+  }
       
-    .tech-card-logo {
-      width: 100px;
-    }
+  .tech-card-name {
+    font-size: 16px;
+    margin: 5px 0;
+  }
       
-    .tech-card-name {
-      font-size: 16px;
-      margin: 5px 0;
-    }
-      
-    .tech-card-date {
-      font-size: 16px;
-      font-weight: bold;
-      margin: 5px 0;
-    }
+  .tech-card-date {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px 0;
   }
       
   .tech-card-info {
@@ -48,5 +42,3 @@
     text-align: center;
   }
 }
-
-
