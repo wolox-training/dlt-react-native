@@ -1,10 +1,16 @@
-.tech-card {
-  position: relative;
-  width: 200px;
+.tech-card-content {
+  background-color: $earls-green;
+  border-radius: 5px;
+  display: flex;
+  flex-flow: column nowrap;
   height: 300px;
+  justify-content: space-evenly;
+  max-width: 200px;
+  padding: 15px;
+  position: relative;
 
   &::before {
-    border: 1px solid #BED23C;
+    border: 1px solid $earls-green;
     border-radius: 5px;
     content: '';
     height: 100%;
@@ -15,45 +21,32 @@
     z-index: -1;
   }
 
-  .tech-card-content {
-    background-color: $earls-green;
-    border-radius: 5px;
+  .tech-card-header {
+    align-items: center;
     display: flex;
     flex-flow: column nowrap;
-    height: 100%;
     justify-content: space-evenly;
-    padding: 15px;
-    position: relative;
-    width: 100%;
-
-    .tech-card-header {
-      align-items: center;
-      display: flex;
-      flex-flow: column nowrap;
-      justify-content: space-evenly;
       
-      .tech-card-logo {
-        background: url('./assets/tech-logos/react_icon.svg') center/contain no-repeat;
-        height:100px;
-        width: 100px;
-      }
-      
-      .tech-card-name {
-        font-size: 16px;
-        margin: 5px 0;
-      }
-      
-      .tech-card-date {
-        font-size: 16px;
-        font-weight: bold;
-        margin: 5px 0;
-      }
+    .tech-card-logo {
+      width: 100px;
     }
       
-    .tech-card-info {
-      font-size: 12px;
-      text-align: center;
+    .tech-card-name {
+      font-size: 16px;
+      margin: 5px 0;
+    }
+      
+    .tech-card-date {
+      font-size: 16px;
+      font-weight: bold;
+      margin: 5px 0;
     }
   }
+      
+  .tech-card-info {
+    font-size: 12px;
+    text-align: center;
+  }
 }
+
 
