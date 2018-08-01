@@ -1,0 +1,39 @@
+.tech-card-content {
+  background-color: $earls-green;
+  border-radius: 5px;
+  display: flex;
+  flex-flow: column nowrap;
+  height: 300px;
+  justify-content: space-between;
+  width: 200px;
+}
+
+.tech-card-header {
+  align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+
+  .tech-card-logo {
+    background: url('./assets/tech-logos/react_icon.svg') center/contain no-repeat;
+    height:100px;
+    width: 100px;
+  }
+
+  .tech-card-name {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+
+  .tech-card-date {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px 0;
+  }
+
+  .tech-card-info {
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
