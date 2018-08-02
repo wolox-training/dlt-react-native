@@ -2,7 +2,6 @@
   display: flex;
   flex-flow: row wrap;
   margin-left: 80px;
-  width: 90%;
 }
 
 .tech-card {
@@ -11,7 +10,6 @@
   border-radius: 5px;
   display: flex;
   flex-flow: column nowrap;
-  flex-basis: 20%;
   height: 300px;
   justify-content: space-evenly;
   padding: 15px;
