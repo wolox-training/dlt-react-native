@@ -21,5 +21,16 @@
       font-weight: bold;
       padding: 15px;
     }
- }
- 
+}
+
+@media only screen and (max-width: 1024px) {
+
+  .page-header {
+    justify-content: center;
+
+    .header-text{
+      display:none
+    }
+  }
+}
+
