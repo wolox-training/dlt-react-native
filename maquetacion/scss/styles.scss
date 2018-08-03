@@ -9,5 +9,7 @@ body {
 }
 
 .techs-section {
+  display: flex;
+  flex-flow: column nowrap;
   position: relative;
 }

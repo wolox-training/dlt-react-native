@@ -1,37 +1,25 @@
 .techs {
-  display: flex;
-  flex-flow: row wrap;
-  margin-left: 80px;
+  align-items: center;
+  align-self: center;
+  display: grid;
+  grid-template-columns: [main] 2fr repeat(2, [row] 1fr);
+  justify-items: center;
 }
 
 .tech-card {
   align-items: center;
-  background-color: $earls-green;
-  border-radius: 5px;
   display: flex;
   flex-flow: column nowrap;
-  height: 300px;
-  justify-content: space-evenly;
-  padding: 15px;
+  justify-content: center;
+  padding: 20px;
   position: relative;
   max-width: 200px;
-  margin: 20px;
-  transition: transform 0.5s ease-in;
   
-  &:hover::before {
-    cursor: pointer;
-    transform: translate(10px, 10px);
-  }
-  
-  &::before {
-      border: 1px solid #BED23C;
-      border-radius: 5px;
-      content: '';
+    &.main-tech {
+      border-right: 2px solid $earls-green;
       height: 100%;
-      position: absolute;
-      transform: translate(-10px, -10px);
-      width: 100%;
-      z-index: -1;
+      grid-column: main;
+      grid-row: 1 / 3;
     }
   }
       
