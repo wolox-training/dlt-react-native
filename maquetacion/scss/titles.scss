@@ -1,21 +1,17 @@
-.titles-content {
-  position: relative;
-  min-height:90px;
-
-  &::after {
-    content: '';
-    position: absolute;
-    background: url('./assets/triangle.svg') left center/contain no-repeat;  
-    width: 70px;
-    height: 90px;
-  }
-}
-
-.titles-text {
-  position: absolute;
+.titles {
+  margin: 30px;
+  min-height: 90px;
+  padding: 30px;
   width: 100%;
-  left: 11%;
-  top: 41%;
-  font-size: 18px;
-  z-index: 2;
+  
+  &::before {
+    content: '';
+    background: url(./assets/triangle.svg) left center/contain no-repeat;
+    height: 90px;
+    left: 8px;
+    position: absolute;
+    top: 20px;
+    width: 70px;
+    z-index: -1;
+  }
 }
