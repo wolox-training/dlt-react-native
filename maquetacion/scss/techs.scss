@@ -44,4 +44,15 @@
     text-align: center;
   }
 
+@media only screen and (max-width: 1024px) {
+  .techs {
+    grid-template-columns: auto;
+  }
+  .tech-card.main-tech {
+    border: none;
+    grid-column: 1;
+    grid-row: 1;
+  }
+}
+
 

@@ -19,3 +19,21 @@
     padding: 0 15px;
   }
 }
+
+@media only screen and (max-width: 1024px) {
+  .page-footer {
+    margin: 0;
+
+    .footer-img {
+      height: 50px;
+    }
+
+    .footer-text-big {
+      font-size: 22px;
+    }
+
+    .footer-text-small {
+      align-self: center;
+    }
+  }
+}
