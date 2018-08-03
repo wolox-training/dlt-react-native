@@ -1,0 +1,21 @@
+.page-footer {
+  align-items: center;
+  background-color: $cerulean;
+  display: flex;
+  flex-flow: column nowrap;
+  margin-top: 50px;
+  
+  .footer-text-big {
+    color: $white;
+    font-size: 24px;
+    margin: 10px 0;
+  }
+
+  .footer-text-small {
+    align-self: flex-end;
+    color: $white;
+    font-size: 12px;
+    margin: 10px 0;
+    padding: 0 15px;
+  }
+}
