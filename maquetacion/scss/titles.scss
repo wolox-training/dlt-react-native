@@ -1,9 +1,10 @@
 .titles {
+  font-size: 24px;
   margin: 30px;
   min-height: 90px;
   padding: 30px;
   width: 100%;
-  
+
   &::before {
     content: '';
     background: url(./assets/triangle.svg) left center/contain no-repeat;
@@ -20,7 +21,8 @@
 
   .titles {
     text-align: center;
-
+    margin: 0;
+    
     &::before {
       left: initial;
       transform: translate(-75%);
