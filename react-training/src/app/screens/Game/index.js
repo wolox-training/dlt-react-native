@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import { lines } from '../../constants/lines';
 
@@ -7,36 +8,27 @@ import Board from './Board';
 import styles from './styles.scss';
 
 class Game extends Component {
-  state = {
-    history: [
-      {
-        squares: Array(9).fill(null)
-      }
-    ],
-    stepNumber: 0,
-    xIsNext: true
-  };
 
   handleClick = i => {
-    const history = this.state.history.slice(0, this.state.stepNumber + 1);
+    const history = this.props.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
     const squares = current.squares.slice();
     if (this.calculateWinner(squares) || squares[i]) {
       return;
     }
-    squares[i] = this.state.xIsNext ? 'X' : 'O';
+    squares[i] = this.props.xIsNext ? 'X' : 'O';
     this.setState({
       history: history.concat([{ squares }]),
       stepNumber: history.length,
-      xIsNext: !this.state.xIsNext
+      xIsNext: !this.props.xIsNext
     });
   };
 
   jumpTo = step => {
-    this.setState({
+    /*this.setState({
       stepNumber: step,
       xIsNext: step % 2 === 0
-    });
+    });*/
   };
 
   calculateWinner = squares => {
@@ -59,11 +51,11 @@ class Game extends Component {
       );
     });
 
-  getStatus = winner => winner ? `Winner: ${winner}` : `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
+  getStatus = winner => winner ? `Winner: ${winner}` : `Next player: ${this.props.xIsNext ? 'X' : 'O'}`;
 
   render() {
     const history = this.state.history;
-    const current = history[this.state.stepNumber];
+    const current = history[this.props.stepNumber];
     const winner = this.calculateWinner(current.squares);
 
     return (
@@ -81,4 +73,10 @@ class Game extends Component {
   }
 }
 
-export default Game;
+const mapStateToProps = state => ({
+  history: state.history,
+  stepNumber: state.stepNumber,
+  xIsNext: state.xIsNext
+})
+
+export default connect(mapStateToProps)(Game);
