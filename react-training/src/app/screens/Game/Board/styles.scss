@@ -1,5 +1,10 @@
-.row:after {
-  clear: both;
-  content: "";
-  display: table;
+.row {
+  display: flex;
+  flex-flow: column;
+
+  &::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
 }
