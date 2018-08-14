@@ -3,9 +3,9 @@ export const actionTypes = {
   PLAYER_MOVE: 'PLAYER_MOVE'
 };
 
-export const gameActions = (() => ({
+export const gameActions = {
   jumpTo: step => ({ type: actionTypes.JUMP_TO, step }),
   playerMove: squareNum => ({ type: actionTypes.PLAYER_MOVE, squareNum })
-}))();
+};
 
 export default gameActions;

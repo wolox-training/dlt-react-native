@@ -54,7 +54,11 @@ export default connect(
 
 Game.propTypes = {
   xIsNext: PropTypes.string,
-  history: PropTypes.arrayOf(PropTypes.object),
+  history: PropTypes.arrayOf(
+    PropTypes.shape({
+      squares: PropTypes.arrayOf(PropTypes.number)
+    })
+  ).isRequired,
   stepNumber: PropTypes.number,
   winner: PropTypes.string,
   playerMove: PropTypes.func,
