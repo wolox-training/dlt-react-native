@@ -40,11 +40,11 @@ const mapDispatchToProps = dispatch => ({
   playerMove: squareNum => dispatch(gameActions.playerMove(squareNum))
 });
 
-const mapStateToProps = state => ({
-  history: state.history,
-  stepNumber: state.stepNumber,
-  xIsNext: state.xIsNext,
-  winner: state.winner
+const mapStateToProps = ({ game }) => ({
+  history: game.history,
+  stepNumber: game.stepNumber,
+  xIsNext: game.xIsNext,
+  winner: game.winner
 });
 
 export default connect(
@@ -53,7 +53,7 @@ export default connect(
 )(Game);
 
 Game.propTypes = {
-  xIsNext: PropTypes.string,
+  xIsNext: PropTypes.bool,
   history: PropTypes.arrayOf(
     PropTypes.shape({
       squares: PropTypes.arrayOf(PropTypes.number)
