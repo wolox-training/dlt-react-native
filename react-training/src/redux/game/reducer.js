@@ -2,7 +2,7 @@ import { lines } from '../../app/constants/lines';
 
 import { actionTypes } from './actions';
 
-const initialState = () => ({
+const initialState = {
   history: [
     {
       squares: Array(9).fill(null)
@@ -11,7 +11,7 @@ const initialState = () => ({
   stepNumber: 0,
   xIsNext: true,
   winner: ''
-});
+};
 
 // TODO: this should be in a utils.js or sth
 const calculateWinner = squares => {
@@ -24,29 +24,30 @@ const calculateWinner = squares => {
   return null;
 };
 
-export default function reducer(state = initialState(), action) {
+export default function reducer(state = initialState, action) {
+  const { squareNum, step } = action;
+  const history = state.history.slice(0, state.stepNumber + 1);
+  const current = history[history.length - 1];
+  const squares = current.squares.slice();
+  const winner = calculateWinner(squares);
+
   switch (action.type) {
     case actionTypes.JUMP_TO:
-      const { step } = action;
-      return Object.assign({}, state, {
+      return {
+        ...state,
         stepNumber: step,
         xIsNext: step % 2 === 0
-      });
+      };
     case actionTypes.PLAYER_MOVE:
-      const { squareNum } = action;
-
-      const history = state.history.slice(0, state.stepNumber + 1);
-      const current = history[history.length - 1];
-      const squares = current.squares.slice();
-      const winner = calculateWinner(squares);
-      if (winner || squares[squareNum]) return Object.assign({}, state, { winner });
+      if (winner || squares[squareNum]) return { ...state, winner };
 
       squares[squareNum] = state.xIsNext ? 'X' : 'O';
-      return Object.assign({}, state, {
+      return {
+        ...state,
         history: history.concat([{ squares }]),
         stepNumber: history.length,
         xIsNext: !state.xIsNext
-      });
+      };
     default:
       return state;
   }
