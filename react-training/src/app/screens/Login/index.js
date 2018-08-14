@@ -11,7 +11,6 @@ class Login extends Component {
   handleSubmit = e => {
     /* some log in logic */
     e.preventDefault();
-    console.log('lslsls');
     this.setState({ isLoggedIn: true });
   };
 
