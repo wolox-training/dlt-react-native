@@ -2,17 +2,16 @@ import { actionTypes } from './actions';
 
 import { lines } from '../../app/constants/lines';
 
-const initialState = () =>
-  ({
-    history: [
-      {
-        squares: Array(9).fill(null)
-      }
-    ],
-    stepNumber: 0,
-    xIsNext: true,
-    winner: ''
-  })
+const initialState = {
+  history: [
+    {
+      squares: Array(9).fill(null)
+    }
+  ],
+  stepNumber: 0,
+  xIsNext: true,
+  winner: ''
+}
 
 // TODO: this should be in a utils.js or sth
 const calculateWinner = squares => {
@@ -25,11 +24,11 @@ const calculateWinner = squares => {
   return null;
 };
 
-export default function reducer(state = initialState(), action) {
+export default function reducer(state = initialState, action) {
   switch (action.type) {
     case actionTypes.JUMP_TO:
       const { step } = action; 
-      return Object.assign({}, state,
+      return Object.assign({}, ...state,
         {
           stepNumber: step,
           xIsNext: step % 2 === 0
@@ -43,11 +42,11 @@ export default function reducer(state = initialState(), action) {
       const squares = current.squares.slice();
       const winner = calculateWinner(squares);
       if (winner || squares[squareNum])
-        return Object.assign({}, state, { winner });
+        return Object.assign({}, ...state, { winner });
 
       squares[squareNum] = state.xIsNext ? 'X' : 'O';
       return Object.assign({}, 
-        state,
+        ...state,
         {
           history: history.concat([{ squares }]),
           stepNumber: history.length,

@@ -1,13 +1,13 @@
 export const actionTypes = {
-  JUMP_TO: "JUMP_TO",
-  PLAYER_MOVE: "PLAYER_MOVE"
+  JUMP_TO: 'JUMP_TO',
+  PLAYER_MOVE: 'PLAYER_MOVE'
 }
 
-export const actionCreator = (() => {
+export const gameActions = (() => {
   return {
-    jumpTo: (payload) => ({ type: actionTypes.JUMP_TO, payload }),
-    playerMove: (payload) => ({ type: actionTypes.PLAYER_MOVE, payload })
+    jumpTo: (step) => ({ type: actionTypes.JUMP_TO, step }),
+    playerMove: (squareNum) => ({ type: actionTypes.PLAYER_MOVE, squareNum })
   }
 })()
 
-export default actionCreator;
+export default gameActions;
