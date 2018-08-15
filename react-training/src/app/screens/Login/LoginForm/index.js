@@ -10,7 +10,7 @@ import styles from './styles.scss';
 function LoginForm(props) {
   return (
     <form className={styles.login} onSubmit={props.handleSubmit}>
-      <Field name="username" component={CustomFormInput} type="text" label="Username" validate={[required]} />
+      <Field name="email" component={CustomFormInput} type="text" label="Email" validate={[required]} />
       <Field
         name="password"
         component={CustomFormInput}
