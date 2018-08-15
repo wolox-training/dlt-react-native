@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import './equalizer.scss';
+@import './variables/colors.scss';
+
 body {
-  font: 14px "Century Gothic", Futura, sans-serif;
+  font: 14px 'Roboto', sans-serif;
   margin: 20px;
   padding: 0;
 }
