@@ -7,9 +7,7 @@ const handleResponse = ({ data }, login) => {
   return { ...login, authenticated };
 };
 
-export const getAll = async () => {
-  api.get(LOGIN_PATH).then(response => handleResponse(response));
-};
+export const getAll = () => api.get(LOGIN_PATH);
 
-export const getByEmail = async login =>
+export const getByEmail = login =>
   api.get(`${LOGIN_PATH}?email=${login.email}`).then(response => handleResponse(response, login));
