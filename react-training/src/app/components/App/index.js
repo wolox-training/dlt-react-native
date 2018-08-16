@@ -1,19 +1,16 @@
 import React from 'react';
-import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+import Login from '../../screens/Login';
 import Game from '../../screens/Game';
-import store from '../../../redux/store';
-
-import style from './styles.scss';
 
 const App = () => (
-  <div className={style.app}>
-    <main className={style.appMain}>
-      <Provider store={store}>
-        <Game store={store} />
-      </Provider>
-    </main>
-  </div>
+  <Router>
+    <Switch>
+      <Route exact path="/" component={Login} />
+      <Route path="/game" component={Game} />
+    </Switch>
+  </Router>
 );
 
 export default App;

@@ -1,5 +1,15 @@
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
+import { reducer as loginReducer } from 'redux-form';
 
-import reducer from './game/reducer';
+import gameReducer from './game/reducer';
 
-export default createStore(reducer);
+const reducers = {
+  game: gameReducer,
+  form: loginReducer
+};
+
+const reducer = combineReducers(reducers);
+export default createStore(
+  reducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
