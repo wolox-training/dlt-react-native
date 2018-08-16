@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
 
-import { CustomFormInput } from '../../../components/customFormInput';
+import { CustomFormInput } from '../../../components/CustomFormInput';
 import { required, minLength } from '../../../validation';
 
 import styles from './styles.scss';
