@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "email": "daniela@wolox.co",
+      "password": "12345678"
+    },
+    {
+      "email": "henry@wolox.co",
+      "password": "12345678"
+    },
+    {
+      "email": "wally@wolox.ar",
+      "password": "12345678"
+    }
+  ]
+}
