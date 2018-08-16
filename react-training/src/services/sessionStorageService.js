@@ -5,3 +5,5 @@ export const startSession = user => {
 };
 
 export const deleteSession = () => localStorage.removeItem('sessionKey');
+
+export const sessionExists = () => atob(localStorage.getItem('sessionKey')).split('=')[1];
