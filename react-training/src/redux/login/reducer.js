@@ -3,7 +3,7 @@ import { actionTypes } from './actions';
 const initialState = {};
 
 export default function reducer(state = initialState, action) {
-  /*
+  console.log(action)
   switch (action.type) {
     case actionTypes.LOGIN_REQUEST:
       return {
@@ -19,6 +19,6 @@ export default function reducer(state = initialState, action) {
       return { ...state };
     default:
       return state;
-  } */
+  } 
   return state;
 }

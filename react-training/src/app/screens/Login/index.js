@@ -3,7 +3,6 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import loginActions from '../../../redux/login/actions';
-
 import LoginForm from './LoginForm';
 
 class Login extends Component {
@@ -15,8 +14,9 @@ class Login extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  requestLogin: login => dispatch(loginActions.requestLogin(login))
+  requestLogin: login => dispatch(loginActions.requestLogin(login)) 
 });
+
 const mapStateToProps = ({ login }) => ({
   loggingIn: login.loggingIn,
   loggedIn: login.loggedIn

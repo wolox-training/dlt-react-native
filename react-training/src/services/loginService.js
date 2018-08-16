@@ -8,6 +8,5 @@ export const getAll = async () => {
   api.get(LOGIN_PATH).then(response => handleResponse(response));
 };
 
-export const getByEmail = async email => {
+export const getByEmail = async email =>
   api.get(`${LOGIN_PATH}?email=${email}`).then(response => handleResponse(response));
-};
