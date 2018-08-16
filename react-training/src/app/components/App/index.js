@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Login from '../../screens/Login';
 import Game from '../../screens/Game';
+import SessionPersistence from '../SessionPersistence';
 
 const App = () => (
   <Router>
