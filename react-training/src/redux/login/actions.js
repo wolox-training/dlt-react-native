@@ -7,18 +7,18 @@ export const actionTypes = {
 };
 
 export const loginActions = {
-  requestLogin: login => {
-    return async dispatch => {
-      console.log('thunk');
-      dispatch({type: actionTypes.LOGIN_REQUEST, login})
-      const apiResponse = await getByEmail(login)
-      console.log('api res', apiResponse)
-      if(apiResponse.email && apiResponse.password) {
-        dispatch(loginActions.loginSuccess({ type: actionTypes.LOGIN_SUCCESS, response }))
-      }else {
-        dispatch(loginActions.loginFailure({ type: actionTypes.LOGIN_FAILURE, response }))
+  requestLogin: login => async dispatch => {
+    dispatch({ type: actionTypes.LOGIN_REQUEST, login });
+    /* mock server latency */
+    setTimeout(async () => {
+      const apiResponse = await getByEmail(login);
+      const { email } = apiResponse;
+      if (apiResponse.authenticated) {
+        dispatch({ type: actionTypes.LOGIN_SUCCESS, payload: email });
+      } else {
+        dispatch({ type: actionTypes.LOGIN_FAILURE, payload: email });
       }
-    }
+    }, 1500);
   }
 };
 

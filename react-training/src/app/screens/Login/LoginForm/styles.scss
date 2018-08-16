@@ -16,6 +16,33 @@
   padding-top: 10px;
 }
 
+.loginError {
+  background-color: red;
+  border-radius: 5px;
+  color: white;  
+  font-weight: bold;
+  grid-column: 1/3;
+  margin: 10px;
+  padding: 8px;
+  text-align: center;
+}
+
+.loggingInBall {
+  background-color: $earls-green;
+  border-radius: 50%;
+  height: 25px;
+  margin: 0 auto;
+  width: 25px;
+  animation: ball 0.5s ease-in-out infinite;
+}
+
+.loggingInText {
+  color: $cerulean;
+  font-weight: bold;
+  margin: 15px;
+  text-align: center;
+}
+
 .submit {
   border: 1px solid $silver;
   border-radius: 5px;
@@ -27,5 +54,14 @@
   &:hover {
     color: $white;
     background-color: $cerulean;
+  }
+}
+
+@keyframes ball {
+  0%, 100% {
+      transform: translateX(-70px);
+  }
+  50% {
+      transform: translateX(70px);
   }
 }
