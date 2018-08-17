@@ -6,6 +6,7 @@ import { authActions } from '../../../redux/auth/action';
 import Login from '../../screens/Login';
 import Game from '../../screens/Game';
 import PrivateRoute from '../PrivateRoute';
+import { routes } from '../../constants/routes';
 
 class App extends Component {
   componentDidMount() {
@@ -16,8 +17,8 @@ class App extends Component {
     return (
       <Router>
         <Switch>
-          <Route path="/login" component={Login} />
-          {['/', 'game'].map(route => (
+          <Route path={routes.login} component={Login} />
+          {routes.game.map(route => (
             <PrivateRoute key={route} path={route} component={Game} />
           ))}
         </Switch>
