@@ -8,10 +8,10 @@ import { required, minLength } from '../../../validation';
 import styles from './styles.scss';
 
 function LoginForm(props) {
-  const { loginError, loggingIn } = props;
+  const { authError, loggingIn } = props;
   return !loggingIn ? (
     <form className={styles.login} onSubmit={props.handleSubmit}>
-      {loginError && <div className={styles.loginError}> Unsucessful Login. Please try again</div>}
+      {authError && <div className={styles.authError}> Unsucessful Login. Please try again</div>}
       <Field name="email" component={CustomFormInput} type="text" label="Email" validate={[required]} />
       <Field
         name="password"
@@ -34,7 +34,7 @@ function LoginForm(props) {
 LoginForm.propTypes = {
   handleSubmit: PropTypes.func,
   loggingIn: PropTypes.bool,
-  loginError: PropTypes.bool
+  authError: PropTypes.bool
 };
 
 export default reduxForm({ form: 'login' })(LoginForm);
