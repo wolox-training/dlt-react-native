@@ -1,41 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { connect } from 'react-redux';
 
-import { authActions } from '../../../redux/auth/action';
 import Login from '../../screens/Login';
 import Game from '../../screens/Game';
-import PrivateRoute from '../PrivateRoute';
+import AuthenticatedRoute from '../AuthenticatedRoute';
 import { routes } from '../../constants/routes';
 
-class App extends Component {
-  componentDidMount() {
-    this.props.setAuthentication();
-  }
+const App = () =>
+  <Router>
+    <Switch>
+      <AuthenticatedRoute path={routes.login} component={Login} />
+      {routes.game.map(route => (
+        <AuthenticatedRoute key={route} path={route} component={Game} />
+      ))}
+    </Switch>
+  </Router>
 
-  render() {
-    return (
-      <Router>
-        <Switch>
-          <Route path={routes.login} component={Login} />
-          {routes.game.map(route => (
-            <PrivateRoute key={route} path={route} component={Game} />
-          ))}
-        </Switch>
-      </Router>
-    );
-  }
-}
-
-const mapStateToProps = ({ auth }) => ({
-  isAuth: auth.isAuth,
-  user: auth.user
-});
-
-const mapDispatchToProps = dispatch => ({
-  setAuthentication: () => dispatch(authActions.setAuthentication())
-});
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default (App);

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import loginActions from '../../../redux/auth/action';
@@ -10,13 +9,8 @@ class Login extends Component {
   handleSubmit = values => this.props.requestLogin(values);
 
   render() {
-    const { isAuth, loggingIn, authError } = this.props;
-
-    return !isAuth ? (
-      <LoginForm onSubmit={this.handleSubmit} authError={authError} loggingIn={loggingIn} />
-    ) : (
-      <Redirect to="/game" />
-    );
+    const { loggingIn, authError } = this.props;
+    return <LoginForm onSubmit={this.handleSubmit} authError={authError} loggingIn={loggingIn} />
   }
 }
 
