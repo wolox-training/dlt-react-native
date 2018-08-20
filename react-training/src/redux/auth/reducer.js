@@ -1,5 +1,11 @@
 import { actionTypes } from '../auth/action';
 
+const initialState = {
+  isAuth: false,
+  user: null,
+  loggingIn: false,
+}
+
 export default function reducer(state = {}, action) {
   const { payload } = action;
   switch (action.type) {
