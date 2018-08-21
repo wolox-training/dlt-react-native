@@ -26,12 +26,8 @@ class AuthenticatedRoute extends Component {
       return pathname === UNAUTHENTICATED_DEFAULT_ROUTE ? (
         <Redirect to={AUTHENTICATED_DEFAULT_ROUTE} />
       ) : (
-<<<<<<< HEAD
-        <PrivatePage component={Component} {...this.props} />
-=======
-        <Component {...this.props} />
->>>>>>> feature/local-storage
-      );
+          <PrivatePage component={Component} {...this.props} />
+        );
     }
     return <Login />;
   };
