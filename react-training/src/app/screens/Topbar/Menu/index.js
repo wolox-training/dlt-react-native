@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import CustomLink from '../../../components/CustomLink';
 import styles from './styles.scss';
+import { routes } from '../../../constants/routes';
 
 const Menu = () => (
   <ul className={styles.list}>
-    <li className={styles.option}>Log Out</li>
-    <li className={styles.option}>Some other thing</li>
+    <CustomLink tag='Log Out' route={routes.logout} />
+    <CustomLink tag='My Account' route={routes.account} />
   </ul>
 );
 

@@ -10,7 +10,7 @@ export default function reducer(state = {}, action) {
   const { payload } = action;
   switch (action.type) {
     case actionTypes.SET_AUTHENTICATION:
-      return { ...state, isAuth: payload.isAuth, user: payload.user };
+      return { ...state, isAuth: payload.isAuth, ...payload };
     case actionTypes.LOGIN_REQUEST:
       return {
         ...state,

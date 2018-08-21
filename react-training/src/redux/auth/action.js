@@ -25,9 +25,9 @@ export const authActions = {
       const apiResponse = await getByEmail(login);
       const { email } = apiResponse;
       if (apiResponse.authenticated) {
-        dispatch({ type: actionTypes.LOGIN_SUCCESS, payload: email });
+        dispatch({ type: actionTypes.LOGIN_SUCCESS, payload: apiResponse });
       } else {
-        dispatch({ type: actionTypes.LOGIN_FAILURE, payload: email });
+        dispatch({ type: actionTypes.LOGIN_FAILURE, payload: apiResponse });
       }
     }, 1500);
   }

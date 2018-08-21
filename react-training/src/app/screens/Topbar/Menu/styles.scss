@@ -1,8 +1,12 @@
 .list {
   display: flex;
   align-items: center;
+
+  & > li {
+    padding: 20px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
 
-.option {
-  padding: 20px;
-}

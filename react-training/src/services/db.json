@@ -2,15 +2,24 @@
   "users": [
     {
       "email": "daniela@wolox.co",
-      "password": "12345678"
+      "password": "12345678",
+      "name": "Daniela Lotero",
+      "position": "Front End Developer",
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet nisl non libero gravida tincidunt. Aliquam faucibus quam vitae ante euismod, et faucibus justo tincidunt. Maecenas eu imperdiet libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur efficitur ullamcorper justo quis congue."
     },
     {
       "email": "henry@wolox.co",
-      "password": "12345678"
+      "password": "12345678",
+      "name": "Henry Zarza",
+      "position": "Front End Developer",
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet nisl non libero gravida tincidunt. Aliquam faucibus quam vitae ante euismod, et faucibus justo tincidunt. Maecenas eu imperdiet libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur efficitur ullamcorper justo quis congue."
     },
     {
       "email": "wally@wolox.ar",
-      "password": "12345678"
+      "password": "12345678",
+      "name": "Walter Folini",
+      "position": "React Technical Lead",
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet nisl non libero gravida tincidunt. Aliquam faucibus quam vitae ante euismod, et faucibus justo tincidunt. Maecenas eu imperdiet libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur efficitur ullamcorper justo quis congue."
     }
   ]
 }

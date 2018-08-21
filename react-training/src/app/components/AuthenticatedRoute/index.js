@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { authActions } from '../../../redux/auth/action';
 import Login from '../../screens/Login';
 import { UNAUTHENTICATED_DEFAULT_ROUTE, AUTHENTICATED_DEFAULT_ROUTE } from '../../constants/auth';
+import PrivatePage from '../PrivatePage';
 
 class AuthenticatedRoute extends Component {
   componentDidMount() {
@@ -13,7 +14,7 @@ class AuthenticatedRoute extends Component {
   renderRoutes = () => {
     const { isAuth, component: Component, location: { pathname } } = this.props;
     if (isAuth) {
-      return pathname === UNAUTHENTICATED_DEFAULT_ROUTE ? <Redirect to={AUTHENTICATED_DEFAULT_ROUTE} /> : <Component {...this.props} />
+      return pathname === UNAUTHENTICATED_DEFAULT_ROUTE ? <Redirect to={AUTHENTICATED_DEFAULT_ROUTE} /> : <PrivatePage component={Component} {...this.props} />
     }
     else return <Login />
   }
