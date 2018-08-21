@@ -1,12 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
 import Login from '../../screens/Login';
 import Game from '../../screens/Game';
 import AuthenticatedRoute from '../AuthenticatedRoute';
 import { routes } from '../../constants/routes';
 
-const App = () =>
+const App = () => (
   <Router>
     <Switch>
       <AuthenticatedRoute path={routes.login} component={Login} />
@@ -15,5 +15,6 @@ const App = () =>
       ))}
     </Switch>
   </Router>
+);
 
-export default (App);
+export default App;
