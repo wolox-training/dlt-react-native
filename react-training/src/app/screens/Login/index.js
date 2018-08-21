@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import loginActions from '../../../redux/login/actions';
+import loginActions from '../../../redux/auth/action';
 
 import LoginForm from './LoginForm';
 
@@ -10,13 +9,8 @@ class Login extends Component {
   handleSubmit = values => this.props.requestLogin(values);
 
   render() {
-    const { loggedIn, loggingIn, loginError } = this.props;
-
-    return !loggedIn ? (
-      <LoginForm onSubmit={this.handleSubmit} loginError={loginError} loggingIn={loggingIn} />
-    ) : (
-      <Redirect to="/game" />
-    );
+    const { loggingIn, authError } = this.props;
+    return <LoginForm onSubmit={this.handleSubmit} authError={authError} loggingIn={loggingIn} />
   }
 }
 
@@ -24,11 +18,11 @@ const mapDispatchToProps = dispatch => ({
   requestLogin: login => dispatch(loginActions.requestLogin(login))
 });
 
-const mapStateToProps = ({ login }) => ({
-  loggingIn: login.loggingIn,
-  loggedIn: login.loggedIn,
-  loginError: login.loginError,
-  user: login.user
+const mapStateToProps = ({ auth }) => ({
+  loggingIn: auth.loggingIn,
+  isAuth: auth.isAuth,
+  authError: auth.authError,
+  user: auth.user
 });
 
 export default connect(
