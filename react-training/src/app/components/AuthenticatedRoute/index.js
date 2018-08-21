@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+<<<<<<< HEAD
 import authActions from '../../../redux/auth/action';
+=======
+import { authActions } from '../../../redux/auth/action';
+>>>>>>> feature/local-storage
 import Login from '../../screens/Login';
 import { UNAUTHENTICATED_DEFAULT_ROUTE, AUTHENTICATED_DEFAULT_ROUTE } from '../../constants/auth';
 import PrivatePage from '../PrivatePage';
@@ -22,7 +26,11 @@ class AuthenticatedRoute extends Component {
       return pathname === UNAUTHENTICATED_DEFAULT_ROUTE ? (
         <Redirect to={AUTHENTICATED_DEFAULT_ROUTE} />
       ) : (
+<<<<<<< HEAD
         <PrivatePage component={Component} {...this.props} />
+=======
+        <Component {...this.props} />
+>>>>>>> feature/local-storage
       );
     }
     return <Login />;
