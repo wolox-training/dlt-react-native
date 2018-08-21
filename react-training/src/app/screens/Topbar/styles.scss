@@ -1,7 +1,18 @@
+@import '../../../scss/variables/colors.scss';
+
 .navbar {
   height: 90px;
   display: flex;
   justify-content: space-between;
+  grid-column: 1/4;
+
+  & > li {
+    font-weight: bold;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
 
 .imgLogo {

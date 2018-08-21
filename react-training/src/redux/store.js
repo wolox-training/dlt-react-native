@@ -4,11 +4,13 @@ import thunk from 'redux-thunk';
 
 import gameReducer from './game/reducer';
 import authReducer from './auth/reducer';
+import userReducer from './user/reducer';
 
 const reducers = {
   game: gameReducer,
   form: loginFormReducer,
-  auth: authReducer
+  auth: authReducer,
+  user: userReducer
 };
 
 const reducer = combineReducers(reducers);

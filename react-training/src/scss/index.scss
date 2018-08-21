@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i');
 @import './equalizer.scss';
 @import './variables/colors.scss';
 
@@ -10,4 +10,8 @@ body {
 
 ol, ul {
   padding-left: 30px;
+}
+
+main {
+  display: grid;
 }
