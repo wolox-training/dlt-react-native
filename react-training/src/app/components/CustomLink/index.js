@@ -8,7 +8,7 @@ class CustomLink extends Component {
 
   render() {
     const { tag } = this.props;
-    return <li onClick={this.handleClick}>{tag}</li>
+    return <li onClick={this.handleClick}>{tag}</li>;
   }
 }
 

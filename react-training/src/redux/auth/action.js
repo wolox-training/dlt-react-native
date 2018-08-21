@@ -30,7 +30,7 @@ const authActions = {
         startSession(email);
         dispatch({ type: actionTypes.LOGIN_SUCCESS, payload: email });
       } else {
-        dispatch({ type: actionTypes.LOGIN_FAILURE, payload: email });
+        dispatch({ type: actionTypes.LOGIN_FAILURE });
       }
     }, 1500);
   },
