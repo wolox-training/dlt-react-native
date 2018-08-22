@@ -15,13 +15,11 @@ const Menu = props => (
   </ul>
 );
 
-const mapStateToProps = ({ auth }) => auth;
-
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(authActions.logout())
 });
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(Menu);

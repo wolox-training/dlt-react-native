@@ -1,6 +1,6 @@
 import { actionTypes } from './actions';
 
-const initialState = {};
+const initialState = { email: null, name: null, position: null, about: null };
 
 export default function reducer(state = initialState, action) {
   const { payload } = action;
