@@ -1,0 +1,20 @@
+@import 'variables/colors';
+
+.navbar {
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  grid-column: 1/4;
+
+  & > li {
+    font-weight: bold;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.imgLogo {
+  width: 150px;
+}

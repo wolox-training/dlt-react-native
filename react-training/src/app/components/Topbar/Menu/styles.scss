@@ -1,0 +1,22 @@
+@import 'variables/colors';
+
+.list {
+  display: flex;
+  align-items: center;
+
+  & > li {
+    margin: 20px;
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:last-child {
+      background-color: $cerulean;
+      border-radius: 5px;
+      color: $white;
+      padding: 15px 20px;
+      box-shadow: 2px 2px 5px 0px #C4C4C4;
+    }
+  }
+}
+

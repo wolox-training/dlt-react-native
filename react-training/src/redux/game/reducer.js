@@ -1,4 +1,4 @@
-import { lines } from '../../app/constants/lines';
+import { lines } from '../../constants/lines';
 
 import { actionTypes } from './actions';
 
