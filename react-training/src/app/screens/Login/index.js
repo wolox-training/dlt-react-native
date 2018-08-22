@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import loginActions from '../../../redux/auth/action';
+import Loading from '../../components/Loading';
 
 import LoginForm from './LoginForm';
 
@@ -10,7 +11,8 @@ class Login extends Component {
 
   render() {
     const { authLoading, authError } = this.props;
-    return <LoginForm onSubmit={this.handleSubmit} authError={authError} loggingIn={authLoading} />;
+    const WithLoading = Loading(LoginForm);
+    return <WithLoading onSubmit={this.handleSubmit} error={authError} loading={authLoading} />;
   }
 }
 
