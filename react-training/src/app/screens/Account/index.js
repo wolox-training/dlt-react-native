@@ -24,7 +24,7 @@ class Account extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  getAccountInfo: login => dispatch(userActions.getAccountInfo({ email: login }))
+  getAccountInfo: email => dispatch(userActions.getAccountInfo({ email }))
 });
 
 const mapStateToProps = ({ user }) => ({
