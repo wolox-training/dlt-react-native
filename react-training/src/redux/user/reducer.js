@@ -1,13 +1,15 @@
+import { createReducer } from 'redux-recompose';
+
 import { actionTypes } from './actions';
 
-const initialState = {};
+const initialState = { user: { email: null, position: null, name: null, about: null } };
 
-export default function reducer(state = initialState, action) {
-  const { payload } = action;
-  switch (action.type) {
-    case actionTypes.GET_ACCOUNT_INFO:
-      return { ...state, ...payload };
-    default:
-      return state;
-  }
-}
+const getAccountInfo = (state, action) => ({ ...state, [action.target]: action.payload });
+
+// reducer without switch
+
+const reducerDescriptor = {
+  [actionTypes.GET_ACCOUNT_INFO]: getAccountInfo
+};
+
+export default createReducer(initialState, reducerDescriptor);

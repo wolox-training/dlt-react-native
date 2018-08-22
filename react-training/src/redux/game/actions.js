@@ -3,9 +3,11 @@ export const actionTypes = {
   PLAYER_MOVE: 'PLAYER_MOVE'
 };
 
+const TARGET = 'game';
+
 export const gameActions = {
-  jumpTo: step => ({ type: actionTypes.JUMP_TO, step }),
-  playerMove: squareNum => ({ type: actionTypes.PLAYER_MOVE, squareNum })
+  jumpTo: step => ({ type: actionTypes.JUMP_TO, step, target: TARGET }),
+  playerMove: squareNum => ({ type: actionTypes.PLAYER_MOVE, squareNum, target: TARGET })
 };
 
 export default gameActions;

@@ -4,39 +4,43 @@ import { getByEmail } from '../../services/loginService';
 export const actionTypes = {
   SET_AUTHENTICATION: 'SET_AUTHENTICATION',
   LOGIN_REQUEST: 'LOGIN_REQUEST',
-  LOGIN_SUCCESS: 'LOGIN_SUCCESS',
-  LOGIN_FAILURE: 'LOGIN_FAILURE',
+  LOGIN_REQUEST_SUCCESS: 'LOGIN_SUCCESS',
+  LOGIN_REQUEST_FAILURE: 'LOGIN_FAILURE',
   LOG_OUT: 'LOG_OUT'
 };
 
+const TARGET = 'auth';
+
 const authActions = {
-  setAuthentication: authState => dispatch => {
+  setAuthentication: () => {
     const sessionUser = sessionExists();
-    const payload = {};
+    let payload = null;
     if (sessionUser) {
-      payload.user = sessionUser;
-      payload.isAuth = true;
+      payload = true;
     }
-    dispatch({ type: actionTypes.SET_AUTHENTICATION, payload });
+    return { type: actionTypes.SET_AUTHENTICATION, payload, target: TARGET };
   },
   requestLogin: login => async dispatch => {
-    dispatch({ type: actionTypes.LOGIN_REQUEST, login });
-    /* mock server latency */
+    dispatch({
+      type: actionTypes.LOGIN_REQUEST,
+      target: TARGET
+    });
+
     setTimeout(async () => {
-      const apiResponse = await getByEmail(login);
+      const apiResponse = await getByEmail(login.email);
       const authenticated = apiResponse && apiResponse.password === login.password;
       if (authenticated) {
         const { email } = apiResponse;
         startSession(email);
-        dispatch({ type: actionTypes.LOGIN_SUCCESS, payload: email });
+        dispatch({ type: actionTypes.LOGIN_REQUEST_SUCCESS, payload: authenticated, target: TARGET });
       } else {
-        dispatch({ type: actionTypes.LOGIN_FAILURE });
+        dispatch({ type: actionTypes.LOGIN_REQUEST_FAILURE, target: TARGET });
       }
     }, 1500);
   },
-  logout: () => async dispatch => {
+  logout: () => {
     deleteSession();
-    dispatch({ type: actionTypes.LOG_OUT });
+    return { type: actionTypes.LOG_OUT, payload: false, target: TARGET };
   }
 };
 

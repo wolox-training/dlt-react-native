@@ -14,11 +14,11 @@ class AuthenticatedRoute extends Component {
 
   renderRoutes = () => {
     const {
-      isAuth,
+      auth,
       component: Component,
       location: { pathname }
     } = this.props;
-    if (isAuth) {
+    if (auth) {
       return pathname === UNAUTHENTICATED_DEFAULT_ROUTE ? (
         <Redirect to={AUTHENTICATED_DEFAULT_ROUTE} />
       ) : (
@@ -38,10 +38,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = ({ auth }) => ({
-  isAuth: auth.isAuth,
-  user: auth.user,
-  currentLocation: auth.currentLocation,
-  previousLocation: auth.previousLocation
+  auth: auth.auth
 });
 
 export default connect(
