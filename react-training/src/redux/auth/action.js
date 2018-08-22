@@ -10,14 +10,14 @@ export const actionTypes = {
 };
 
 const authActions = {
-  setAuthentication: authState => dispatch => {
+  setAuthentication: () => dispatch => {
     const sessionUser = sessionExists();
     const payload = {};
     if (sessionUser) {
       payload.user = sessionUser;
       payload.isAuth = true;
+      dispatch({ type: actionTypes.SET_AUTHENTICATION, payload });
     }
-    dispatch({ type: actionTypes.SET_AUTHENTICATION, payload });
   },
   requestLogin: login => async dispatch => {
     dispatch({ type: actionTypes.LOGIN_REQUEST, login });
