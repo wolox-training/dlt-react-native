@@ -27,15 +27,12 @@ const mapDispatchToProps = dispatch => ({
   getAccountInfo: login => dispatch(userActions.getAccountInfo({ email: login }))
 });
 
-const mapStateToProps = ({ user }) => {
-  console.log('user', user);
-  return {
+const mapStateToProps = ({ user }) => ({
     name: user.user.name,
     email: user.user.email,
     about: user.user.about,
     position: user.user.position
-  };
-};
+  });
 
 export default connect(
   mapStateToProps,
