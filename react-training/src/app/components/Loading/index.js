@@ -1,13 +1,18 @@
 import React, { Fragment } from 'react';
 
+import styles from './styles.scss';
+
 const Loading = Component => props => {
-  console.log(Component, props);
   const { loading, error } = props;
   return loading ? (
-    <div>Loading...</div>
+    <Fragment>
+      <div className={styles.loadingAnimation} />
+      <div className={styles.loadingText}>Logging you in</div>
+    </Fragment>
   ) : error ? (
     <Fragment>
-      <div>error!</div> <Component {...props} />
+      <div className={styles.error}>There was an error. Please try again</div>
+      <Component {...props} />
     </Fragment>
   ) : (
     <Component {...props} />
