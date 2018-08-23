@@ -28,11 +28,11 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = ({ user }) => ({
-    name: user.user.name,
-    email: user.user.email,
-    about: user.user.about,
-    position: user.user.position
-  });
+  name: user.user && user.user.name,
+  email: user.user && user.user.email,
+  about: user.user && user.user.about,
+  position: user.user && user.user.position
+});
 
 export default connect(
   mapStateToProps,

@@ -1,15 +1,14 @@
-import { createReducer } from 'redux-recompose';
+import { createReducer, completeReducer, completeState } from 'redux-recompose';
+import Immutable from 'seamless-immutable';
 
-import { actionTypes } from './actions';
+import { actions } from './actions';
 
-const initialState = { user: { email: null, position: null, name: null, about: null } };
+const state = { user: null };
 
-const getAccountInfo = (state, action) => ({ ...state, [action.target]: action.payload });
-
-// reducer without switch
+const initialState = completeState(state);
 
 const reducerDescriptor = {
-  [actionTypes.GET_ACCOUNT_INFO]: getAccountInfo
+  primaryActions: [actions.GET_ACCOUNT_INFO]
 };
 
-export default createReducer(initialState, reducerDescriptor);
+export default createReducer(Immutable(initialState), completeReducer(reducerDescriptor));

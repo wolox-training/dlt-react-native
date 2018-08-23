@@ -25,7 +25,9 @@ function LoginForm(props) {
   );
 }
 LoginForm.propTypes = {
-  handleSubmit: PropTypes.func
+  handleSubmit: PropTypes.func,
+  loggingIn: PropTypes.bool,
+  authError: PropTypes.string
 };
 
 export default reduxForm({ form: 'login' })(LoginForm);
