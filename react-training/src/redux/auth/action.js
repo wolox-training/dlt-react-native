@@ -1,13 +1,12 @@
+import { completeTypes, createTypes } from 'redux-recompose';
+
 import { sessionExists, startSession, deleteSession } from '../../services/sessionStorageService';
 import { getByEmail } from '../../services/loginService';
 
-export const actionTypes = {
-  SET_AUTHENTICATION: 'SET_AUTHENTICATION',
-  LOGIN_REQUEST: 'LOGIN_REQUEST',
-  LOGIN_REQUEST_SUCCESS: 'LOGIN_SUCCESS',
-  LOGIN_REQUEST_FAILURE: 'LOGIN_FAILURE',
-  LOG_OUT: 'LOG_OUT'
-};
+const actionsArr = ['LOG_OUT', 'SET_AUTHENTICATION'];
+const completedActionsArr = ['LOGIN_REQUEST'];
+
+export const actionTypes = createTypes(completeTypes(completedActionsArr, actionsArr), '@@AUTH');
 
 const TARGET = 'auth';
 

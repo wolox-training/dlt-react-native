@@ -1,7 +1,6 @@
-export const actionTypes = {
-  JUMP_TO: 'JUMP_TO',
-  PLAYER_MOVE: 'PLAYER_MOVE'
-};
+import { createTypes } from 'redux-recompose';
+
+export const actionTypes = createTypes(['JUMP_TO', 'PLAYER_MOVE'], '@@GAME');
 
 const TARGET = 'game';
 

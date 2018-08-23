@@ -1,6 +1,6 @@
 import { createReducer } from 'redux-recompose';
 
-import { actionTypes } from './actions';
+import { actions } from './actions';
 
 const initialState = { user: { email: null, position: null, name: null, about: null } };
 
@@ -9,7 +9,7 @@ const getAccountInfo = (state, action) => ({ ...state, [action.target]: action.p
 // reducer without switch
 
 const reducerDescriptor = {
-  [actionTypes.GET_ACCOUNT_INFO]: getAccountInfo
+  [actions.GET_ACCOUNT_INFO]: getAccountInfo
 };
 
 export default createReducer(initialState, reducerDescriptor);
