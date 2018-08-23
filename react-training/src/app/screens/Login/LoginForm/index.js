@@ -11,7 +11,7 @@ function LoginForm(props) {
   const { authError, loggingIn } = props;
   return !loggingIn ? (
     <form className={styles.login} onSubmit={props.handleSubmit}>
-      {authError && <div className={styles.authError}> Unsucessful Login. Please try again</div>}
+      {authError && <div className={styles.authError}> {authError}</div>}
       <Field name="email" component={CustomFormInput} type="text" label="Email" validate={[required]} />
       <Field
         name="password"
@@ -34,7 +34,7 @@ function LoginForm(props) {
 LoginForm.propTypes = {
   handleSubmit: PropTypes.func,
   loggingIn: PropTypes.bool,
-  authError: PropTypes.bool
+  authError: PropTypes.string
 };
 
 export default reduxForm({ form: 'login' })(LoginForm);

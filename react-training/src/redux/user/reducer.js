@@ -1,13 +1,14 @@
-import { createReducer, onReadValue } from 'redux-recompose';
+import { createReducer, completeReducer, completeState } from 'redux-recompose';
 import Immutable from 'seamless-immutable';
 
 import { actions } from './actions';
 
-const initialState = { user: null };
-// completeState
+const state = { user: null };
+
+const initialState = completeState(state);
 
 const reducerDescriptor = {
-  [actions.GET_ACCOUNT_INFO]: onReadValue()
+  primaryActions: [actions.GET_ACCOUNT_INFO]
 };
 
-export default createReducer(Immutable(initialState), reducerDescriptor);
+export default createReducer(Immutable(initialState), completeReducer(reducerDescriptor));
