@@ -3,11 +3,11 @@ import React, { Fragment } from 'react';
 import styles from './styles.scss';
 
 const Loading = Component => props => {
-  const { loading, error } = props;
+  const { loading, error, msg } = props;
   return loading ? (
     <Fragment>
       <div className={styles.loadingAnimation} />
-      <div className={styles.loadingText}>Logging you in</div>
+      <div className={styles.loadingText}>{msg}</div>
     </Fragment>
   ) : error ? (
     <Fragment>

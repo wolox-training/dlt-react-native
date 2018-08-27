@@ -12,7 +12,14 @@ class Login extends Component {
   render() {
     const { authLoading, authError } = this.props;
     const WithLoading = Loading(LoginForm);
-    return <WithLoading onSubmit={this.handleSubmit} error={authError} loading={authLoading} />;
+    return (
+      <WithLoading
+        onSubmit={this.handleSubmit}
+        error={authError}
+        loading={authLoading}
+        msg="Logging you in"
+      />
+    );
   }
 }
 
