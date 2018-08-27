@@ -1,13 +1,14 @@
-import { actionTypes } from './actions';
+import { createReducer, completeReducer, completeState } from 'redux-recompose';
+import Immutable from 'seamless-immutable';
 
-const initialState = { email: null, name: null, position: null, about: null };
+import { actions } from './actions';
 
-export default function reducer(state = initialState, action) {
-  const { payload } = action;
-  switch (action.type) {
-    case actionTypes.GET_ACCOUNT_INFO:
-      return { ...state, ...payload };
-    default:
-      return state;
-  }
-}
+const state = { user: null };
+
+const initialState = completeState(state);
+
+const reducerDescriptor = {
+  primaryActions: [actions.GET_ACCOUNT_INFO]
+};
+
+export default createReducer(Immutable(initialState), completeReducer(reducerDescriptor));

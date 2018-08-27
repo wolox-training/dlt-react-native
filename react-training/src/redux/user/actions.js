@@ -1,13 +1,21 @@
-import { getByEmail } from '../../services/loginService';
+import { createTypes, completeTypes } from 'redux-recompose';
 
-export const actionTypes = {
-  GET_ACCOUNT_INFO: 'GET_ACCOUNT_INFO'
-};
+import { getByEmail } from '../../services/loginService';
+import { sessionExists } from '../../services/sessionStorageService';
+
+export const actions = createTypes(completeTypes(['GET_ACCOUNT_INFO']), '@@USER');
 
 export const userActions = {
-  getAccountInfo: userState => async dispatch => {
-    const apiResponse = await getByEmail(userState);
-    dispatch({ type: actionTypes.GET_ACCOUNT_INFO, payload: apiResponse });
+  getAccountInfo: () => {
+    const user = sessionExists();
+    return {
+      type: actions.GET_ACCOUNT_INFO,
+      target: 'user',
+      service: getByEmail,
+      payload: user,
+      successSelector: response => response.data[0]
+    };
   }
 };
+
 export default userActions;

@@ -9,8 +9,8 @@ class Login extends Component {
   handleSubmit = values => this.props.requestLogin(values);
 
   render() {
-    const { loggingIn, authError } = this.props;
-    return <LoginForm onSubmit={this.handleSubmit} authError={authError} loggingIn={loggingIn} />
+    const { authLoading, authError } = this.props;
+    return <LoginForm onSubmit={this.handleSubmit} authError={authError} loggingIn={authLoading} />;
   }
 }
 
@@ -19,10 +19,8 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = ({ auth }) => ({
-  loggingIn: auth.loggingIn,
-  isAuth: auth.isAuth,
-  authError: auth.authError,
-  user: auth.user
+  authLoading: auth.authLoading,
+  authError: auth.authError
 });
 
 export default connect(

@@ -11,7 +11,7 @@ class Account extends Component {
   }
 
   render() {
-    const { name, email, position, about } = this.props;
+    const { email, name, about, position } = this.props;
     return (
       <div className={styles.main}>
         <div className={styles.name}>{name}</div>
@@ -27,12 +27,11 @@ const mapDispatchToProps = dispatch => ({
   getAccountInfo: email => dispatch(userActions.getAccountInfo({ email }))
 });
 
-const mapStateToProps = ({ auth, user }) => ({
-  user: auth.user,
-  name: user.name,
-  email: user.email,
-  position: user.position,
-  about: user.about
+const mapStateToProps = ({ user }) => ({
+  name: user.user && user.user.name,
+  email: user.user && user.user.email,
+  about: user.user && user.user.about,
+  position: user.user && user.user.position
 });
 
 export default connect(
