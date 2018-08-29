@@ -8,7 +8,6 @@ import * as Routes from '../constants/routes';
 import { stackNavConfig, screensNavOptions, tabNavConfig } from '../config/navigation';
 
 import Home from './screens/Home';
-import BookList from './screens/BookList';
 
 export default createStackNavigator(
   {
@@ -20,7 +19,7 @@ export default createStackNavigator(
             navigationOptions: screensNavOptions[Routes.Tab1]
           },
           [Routes.Tab2]: {
-            screen: BookList,
+            screen: Home,
             navigationOptions: screensNavOptions[Routes.Tab2]
           }
         },
