@@ -13,7 +13,10 @@ class BookList extends Component {
     getAll();
   }
 
-  renderBooks = ({ item }) => <BookItem key={item.id} book={item} />;
+  renderBooks = ({ item }) => {
+    const { navigateToDetail } = this.props;
+    return <BookItem key={item.id} book={item} navigateToDetail={navigateToDetail} />;
+  };
 
   render() {
     const { books } = this.props;
@@ -25,8 +28,8 @@ class BookList extends Component {
   }
 }
 
-const mapStateToProps = ({ books }) => ({
-  books: books.books
+const mapStateToProps = state => ({
+  books: state.books.books
 });
 
 const mapDispatchToProps = dispatch => ({

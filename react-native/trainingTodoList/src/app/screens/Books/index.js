@@ -1,12 +1,22 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, { Component } from 'react';
+import { View } from 'react-native';
 
 import BookList from './components/BookList';
 
-const Books = () => (
-  <View>
-    <BookList />
-  </View>
-);
+class Books extends Component {
+  navigateToDetail = (id, title) => {
+    const { navigation } = this.props;
+    navigation.navigate('bookDetail', { id, title });
+  };
+
+  render() {
+    console.log('book props', this.props);
+    return (
+      <View>
+        <BookList navigateToDetail={this.navigateToDetail} />
+      </View>
+    );
+  }
+}
 
 export default Books;
