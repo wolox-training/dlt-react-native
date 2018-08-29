@@ -11,12 +11,14 @@ import { ROOT } from '../constants/platform';
 import Navigator from '../app/screens';
 
 import todoReducer from './todo/reducer';
+import booksReducer from './books/reducer';
 
 const nav = createNavigationReducer(Navigator);
 
 const reducers = combineReducers({
   nav,
-  todos: todoReducer
+  todos: todoReducer,
+  books: booksReducer
 });
 
 const middlewares = [];
