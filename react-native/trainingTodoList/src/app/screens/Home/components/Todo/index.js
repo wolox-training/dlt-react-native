@@ -49,7 +49,7 @@ class Todo extends Component {
     return (
       <View style={styles.todo}>
         <TodoInput onAddItem={this.onAddItem} />
-        {!itemsSelected.length && (
+        {!!itemsSelected.length && (
           <CustomButton
             title={strings.DELETE_SELECTED()}
             onPress={this.deleteMultiple}
