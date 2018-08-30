@@ -36,13 +36,13 @@ class TodoItem extends Component {
     const { selected } = this.state;
     return (
       <TouchableHighlight
-        style={selected ? styles.selected : null}
+        style={selected && styles.selected}
         underlayColor={silver}
         onLongPress={this.selectMultiple}
       >
         <View style={styles.view}>
           <CustomCheckbox checked={completed} onPress={this.onCheckItem} />
-          <Text style={[styles.text]}>{todo}</Text>
+          <Text style={styles.text}>{todo}</Text>
           <CustomButton title="X" onPress={this.onDeleteItem} textStyle={styles.deleteButton} />
         </View>
       </TouchableHighlight>
@@ -54,9 +54,9 @@ TodoItem.propTypes = {
   completed: PropTypes.bool,
   id: PropTypes.number,
   todo: PropTypes.string,
-  toggleTodoItem: PropTypes.func,
-  onDeleteItem: PropTypes.func,
-  selectMultiple: PropTypes.func
+  toggleTodoItem: PropTypes.func.isRequired,
+  onDeleteItem: PropTypes.func.isRequired,
+  selectMultiple: PropTypes.func.isRequired
 };
 
 export default TodoItem;

@@ -25,11 +25,11 @@ class TodoList extends Component {
 
   render() {
     const { todos } = this.props;
-    return todos ? (
+    return (
       <View>
         <FlatList data={todos} renderItem={this.renderTodos} />
       </View>
-    ) : null;
+    );
   }
 }
 
@@ -40,9 +40,9 @@ TodoList.propTypes = {
       completed: PropTypes.bool
     })
   ),
-  toggleTodoItem: PropTypes.func,
-  onDeleteItem: PropTypes.func,
-  selectMultiple: PropTypes.func
+  toggleTodoItem: PropTypes.func.isRequired,
+  onDeleteItem: PropTypes.func.isRequired,
+  selectMultiple: PropTypes.func.isRequired
 };
 
 const mapStateToProps = ({ todos }) => ({

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import loginActions from '../../../redux/auth/action';
+import Loading from '../../components/Loading';
 
 import LoginForm from './LoginForm';
 
@@ -9,8 +10,16 @@ class Login extends Component {
   handleSubmit = values => this.props.requestLogin(values);
 
   render() {
-    const { loggingIn, authError } = this.props;
-    return <LoginForm onSubmit={this.handleSubmit} authError={authError} loggingIn={loggingIn} />
+    const { authLoading, authError } = this.props;
+    const WithLoading = Loading(LoginForm);
+    return (
+      <WithLoading
+        onSubmit={this.handleSubmit}
+        error={authError}
+        loading={authLoading}
+        msg="Logging you in"
+      />
+    );
   }
 }
 
@@ -19,10 +28,8 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = ({ auth }) => ({
-  loggingIn: auth.loggingIn,
-  isAuth: auth.isAuth,
-  authError: auth.authError,
-  user: auth.user
+  authLoading: auth.authLoading,
+  authError: auth.authError
 });
 
 export default connect(

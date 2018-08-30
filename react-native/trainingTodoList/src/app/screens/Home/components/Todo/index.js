@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import { strings } from '../../../../i18n';
 import todosActions from '../../../../../redux/todo/action';
 import TodoList from '../TodoList';
 import TodoInput from '../TodoInput';
@@ -48,9 +49,9 @@ class Todo extends Component {
     return (
       <View style={styles.todo}>
         <TodoInput onAddItem={this.onAddItem} />
-        {itemsSelected.length > 0 && (
+        {!!itemsSelected.length && (
           <CustomButton
-            title="Delete Selected"
+            title={strings.DELETE_SELECTED()}
             onPress={this.deleteMultiple}
             textStyle={styles.deleteMultipleBtn}
           />
@@ -66,9 +67,9 @@ class Todo extends Component {
 }
 
 Todo.propTypes = {
-  addTodoItem: PropTypes.func,
-  deleteTodos: PropTypes.func,
-  toggleTodoItem: PropTypes.func
+  addTodoItem: PropTypes.funcisRequired,
+  deleteTodos: PropTypes.funcisRequired,
+  toggleTodoItem: PropTypes.funcisRequired
 };
 
 const mapDispatchToProps = dispatch => ({

@@ -1,42 +1,34 @@
-import { sessionExists, startSession, deleteSession } from '../../services/sessionStorageService';
-import { getByEmail } from '../../services/loginService';
+import { completeTypes, createTypes } from 'redux-recompose';
 
-export const actionTypes = {
-  SET_AUTHENTICATION: 'SET_AUTHENTICATION',
-  LOGIN_REQUEST: 'LOGIN_REQUEST',
-  LOGIN_SUCCESS: 'LOGIN_SUCCESS',
-  LOGIN_FAILURE: 'LOGIN_FAILURE',
-  LOG_OUT: 'LOG_OUT'
-};
+import { sessionExists, deleteSession } from '../../services/sessionStorageService';
+import { getByEmailWithAuth } from '../../services/loginService';
+
+const actionsArr = ['LOG_OUT', 'SET_AUTHENTICATION'];
+const completedActionsArr = ['LOGIN_REQUEST'];
+
+export const actionTypes = createTypes(completeTypes(completedActionsArr, actionsArr), '@@AUTH');
+
+const TARGET = 'auth';
 
 const authActions = {
-  setAuthentication: () => dispatch => {
+  setAuthentication: () => {
     const sessionUser = sessionExists();
-    const payload = {};
+    let payload = null;
     if (sessionUser) {
-      payload.user = sessionUser;
-      payload.isAuth = true;
-      dispatch({ type: actionTypes.SET_AUTHENTICATION, payload });
+      payload = true;
     }
+    return { type: actionTypes.SET_AUTHENTICATION, payload, target: TARGET };
   },
-  requestLogin: login => async dispatch => {
-    dispatch({ type: actionTypes.LOGIN_REQUEST, login });
-    /* mock server latency */
-    setTimeout(async () => {
-      const apiResponse = await getByEmail(login);
-      const authenticated = apiResponse && apiResponse.password === login.password;
-      if (authenticated) {
-        const { email } = apiResponse;
-        startSession(email);
-        dispatch({ type: actionTypes.LOGIN_SUCCESS, payload: email });
-      } else {
-        dispatch({ type: actionTypes.LOGIN_FAILURE });
-      }
-    }, 1500);
-  },
-  logout: () => async dispatch => {
+  requestLogin: login => ({
+    type: actionTypes.LOGIN_REQUEST,
+    target: TARGET,
+    service: getByEmailWithAuth,
+    payload: login,
+    successSelector: response => response.data[0]
+  }),
+  logout: () => {
     deleteSession();
-    dispatch({ type: actionTypes.LOG_OUT });
+    return { type: actionTypes.LOG_OUT, payload: false, target: TARGET };
   }
 };
 
