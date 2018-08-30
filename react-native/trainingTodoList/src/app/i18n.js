@@ -8,7 +8,9 @@ const translations = {
   es: {
     [Routes.Tab1]: 'TODO List',
     [Routes.Tab2]: 'TODO List',
-    [Routes.Home]: 'Home'
+    [Routes.Home]: 'Home',
+    DELETE_SELECTED: 'Borrar Seleccionados',
+    ADD_SOME_TASKS: 'Agrega Tareas!'
   }
 };
 
