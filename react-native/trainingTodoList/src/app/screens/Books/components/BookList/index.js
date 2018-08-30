@@ -15,13 +15,11 @@ class BookList extends Component {
 
   renderBooks = ({ item }) => <BookItem key={item.id} book={item} />;
 
+  keyExtractor = (item, index) => item.id;
+
   render() {
     const { books } = this.props;
-    return (
-      <View>
-        <FlatList data={books} renderItem={this.renderBooks} />
-      </View>
-    );
+    return <FlatList data={books} renderItem={this.renderBooks} keyExtractor={this.keyExtractor} />;
   }
 }
 
@@ -34,7 +32,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 BookList.propTypes = {
-  getAll: PropTypes.func,
+  getAll: PropTypes.func.isRequired,
   books: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,

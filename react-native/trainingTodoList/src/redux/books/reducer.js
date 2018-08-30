@@ -6,7 +6,7 @@ import { actionTypes } from './action';
 const initialState = completeState({ books: [] });
 
 const reducerDescriptor = {
-  primaryActions: [actionTypes.GET_ALL, actionTypes.GET_BY_ID]
+  primaryActions: [actionTypes.GET_ALL]
 };
 
 export default createReducer(Immutable(initialState), completeReducer(reducerDescriptor));

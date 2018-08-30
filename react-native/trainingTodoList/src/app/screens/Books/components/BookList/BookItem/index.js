@@ -1,28 +1,37 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View, Text, Image } from 'react-native';
 
 import CustomButton from '../../../../../components/CustomButton';
 
+import imageNotAvailable from './assets/not_available.jpg';
+import icon from './assets/arrow.png';
 import styles from './styles';
 
-const BookItem = props => {
-  const {
-    book: { author, title, image_url }
-  } = props;
+class BookItem extends Component {
+  imageUri = () => {
+    const {
+      book: { image_url }
+    } = this.props;
+    return image_url ? { uri: image_url } : imageNotAvailable;
+  };
 
-  const imageSource = image_url ? { uri: image_url } : require('./assets/not_available.jpg');
-  return (
-    <View style={styles.bookContainer}>
-      <Image source={imageSource} style={styles.bookImg} />
-      <View style={styles.textContainer}>
-        <View style={styles.bookInfo}>
-          <Text style={styles.bookTitle}>{title}</Text>
-          <Text style={styles.bookAuthor}>{author}</Text>
+  render() {
+    const {
+      book: { author, title }
+    } = this.props;
+    return (
+      <View style={styles.bookContainer}>
+        <View style={styles.textContainer}>
+          <Image source={this.imageUri()} style={styles.bookImg} />
+          <View style={styles.bookInfo}>
+            <Text style={styles.bookTitle}>{title}</Text>
+            <Text style={styles.bookAuthor}>{author}</Text>
+          </View>
+          <CustomButton icon={icon} />
         </View>
-        <CustomButton icon={require('./assets/arrow.png')} />
       </View>
-    </View>
-  );
-};
+    );
+  }
+}
 
 export default BookItem;

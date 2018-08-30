@@ -3,10 +3,6 @@ import { View, Text } from 'react-native';
 
 import BookList from './components/BookList';
 
-const Books = () => (
-  <View>
-    <BookList />
-  </View>
-);
+const Books = () => <BookList />;
 
 export default Books;
