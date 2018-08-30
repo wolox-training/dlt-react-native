@@ -8,12 +8,7 @@ import icon from './assets/arrow.png';
 import styles from './styles';
 
 class BookItem extends Component {
-  imageUri = () => {
-    const {
-      book: { image_url }
-    } = this.props;
-    return image_url ? { uri: image_url } : imageNotAvailable;
-  };
+  imageUri = this.props.book.image_url ? { uri: this.props.book.image_url } : imageNotAvailable;
 
   render() {
     const {
@@ -22,7 +17,7 @@ class BookItem extends Component {
     return (
       <View style={styles.bookContainer}>
         <View style={styles.textContainer}>
-          <Image source={this.imageUri()} style={styles.bookImg} />
+          <Image source={this.imageUri} style={styles.bookImg} />
           <View style={styles.bookInfo}>
             <Text style={styles.bookTitle}>{title}</Text>
             <Text style={styles.bookAuthor}>{author}</Text>
