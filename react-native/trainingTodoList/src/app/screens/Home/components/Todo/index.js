@@ -66,9 +66,9 @@ class Todo extends Component {
 }
 
 Todo.propTypes = {
-  addTodoItem: PropTypes.func,
-  deleteTodos: PropTypes.func,
-  toggleTodoItem: PropTypes.func
+  addTodoItem: PropTypes.funcisRequired,
+  deleteTodos: PropTypes.funcisRequired,
+  toggleTodoItem: PropTypes.funcisRequired
 };
 
 const mapDispatchToProps = dispatch => ({
