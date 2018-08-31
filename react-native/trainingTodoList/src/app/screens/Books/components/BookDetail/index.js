@@ -20,7 +20,6 @@ class BookDetail extends Component {
   }
 
   render() {
-    console.log('book detail', this.props);
     const {
       book: { author, title, genre, publisher, year, image_url }
     } = this.props;
