@@ -2,7 +2,7 @@ import { completeTypes, createTypes } from 'redux-recompose';
 
 import { getAll, getById } from '../../services/booksService';
 
-const completedActions = ['GET_ALL'];
+const completedActions = ['GET_ALL', 'GET_BY_ID'];
 
 export const actionTypes = createTypes(completeTypes(completedActions), '@@BOOKS');
 
