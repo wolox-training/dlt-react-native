@@ -5,8 +5,11 @@ import { View, Text, Image } from 'react-native';
 import booksActions from '../../../../../redux/books/action';
 
 import styles from './styles';
+import imageNotAvailable from './assets/not_available.jpg';
 
 class BookDetail extends Component {
+  imageSource = this.props.book.image_url ? { uri: this.props.book.image_url } : imageNotAvailable;
+
   componentDidMount() {
     const {
       getById,
@@ -21,14 +24,12 @@ class BookDetail extends Component {
 
   render() {
     const {
-      book: { author, title, genre, publisher, year, image_url }
+      book: { author, title, genre, publisher, year }
     } = this.props;
-
-    const imageSource = image_url ? { uri: image_url } : require('./assets/not_available.jpg');
 
     return (
       <View style={styles.container}>
-        <Image source={imageSource} style={styles.bookImg} />
+        <Image source={this.imageSource} style={styles.bookImg} />
         <Text style={[styles.bookTitle, styles.textContainer]}>{title}</Text>
         <Text style={styles.textContainer}>
           {author} - {genre}
