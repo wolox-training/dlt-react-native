@@ -8,6 +8,7 @@ import * as Routes from '../constants/routes';
 import { stackNavConfig, screensNavOptions, tabNavConfig } from '../config/navigation';
 
 import Home from './screens/Home';
+import Books from './screens/Books';
 
 export default createStackNavigator(
   {
@@ -15,7 +16,7 @@ export default createStackNavigator(
       screen: createBottomTabNavigator(
         {
           [Routes.Tab1]: {
-            screen: Home,
+            screen: Books,
             navigationOptions: screensNavOptions[Routes.Tab1]
           },
           [Routes.Tab2]: {

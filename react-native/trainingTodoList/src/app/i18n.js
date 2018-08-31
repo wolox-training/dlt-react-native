@@ -6,8 +6,8 @@ import * as Routes from '../constants/routes';
 const namespace = 'app';
 const translations = {
   es: {
-    [Routes.Tab1]: 'TODO List',
     [Routes.Tab2]: 'TODO List',
+    [Routes.Tab1]: 'Books',
     [Routes.Home]: 'Home',
     DELETE_SELECTED: 'Borrar Seleccionados',
     ADD_SOME_TASKS: 'Agrega Tareas!'
