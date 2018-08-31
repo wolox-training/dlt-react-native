@@ -9,6 +9,7 @@ import { stackNavConfig, screensNavOptions, tabNavConfig } from '../config/navig
 
 import Home from './screens/Home';
 import Books from './screens/Books';
+import BookDetail from './screens/Books/components/BookDetail';
 
 export default createStackNavigator(
   {
@@ -27,6 +28,10 @@ export default createStackNavigator(
         tabNavConfig
       ),
       navigationOptions: screensNavOptions[Routes.Home]
+    },
+    [Routes.BookDetail]: {
+      screen: BookDetail,
+      navigationOptions: ({ navigation }) => ({ title: navigation.state.params.title || 'Book Details' })
     }
   },
   stackNavConfig

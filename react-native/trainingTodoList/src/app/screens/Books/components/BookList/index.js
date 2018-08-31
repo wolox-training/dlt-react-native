@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -13,7 +13,10 @@ class BookList extends Component {
     getAll();
   }
 
-  renderBooks = ({ item }) => <BookItem key={item.id} book={item} />;
+  renderBooks = ({ item }) => {
+    const { navigateToDetail } = this.props;
+    return <BookItem key={item.id} book={item} navigateToDetail={navigateToDetail} />;
+  };
 
   keyExtractor = (item, index) => item.id;
 
@@ -23,8 +26,8 @@ class BookList extends Component {
   }
 }
 
-const mapStateToProps = ({ books }) => ({
-  books: books.books
+const mapStateToProps = state => ({
+  books: state.books.books
 });
 
 const mapDispatchToProps = dispatch => ({

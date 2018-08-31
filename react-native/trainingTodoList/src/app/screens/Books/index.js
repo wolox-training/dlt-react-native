@@ -1,8 +1,18 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, { Component } from 'react';
+
+import { BookDetail } from '../../../constants/routes';
 
 import BookList from './components/BookList';
 
-const Books = () => <BookList />;
+class Books extends Component {
+  navigateToDetail = (id, title) => {
+    const { navigation } = this.props;
+    navigation.navigate(BookDetail, { id, title });
+  };
+
+  render() {
+    return <BookList navigateToDetail={this.navigateToDetail} />;
+  }
+}
 
 export default Books;
