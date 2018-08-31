@@ -4,9 +4,13 @@ import { View, Text, Image, TouchableHighlight } from 'react-native';
 import CustomButton from '../../../../../components/CustomButton';
 import { silver } from '../../../../../../constants/colors';
 
+import imageNotAvailable from './assets/not_available.jpg';
+import icon from './assets/arrow.png';
 import styles from './styles';
 
 class BookItem extends Component {
+  imageUri = this.props.book.image_url ? { uri: this.props.book.image_url } : imageNotAvailable;
+
   navigateToDetail = () => {
     const {
       navigateToDetail,
@@ -17,20 +21,19 @@ class BookItem extends Component {
 
   render() {
     const {
-      book: { author, title, image_url }
+      book: { author, title }
     } = this.props;
 
-    const imageSource = image_url ? { uri: image_url } : require('./assets/not_available.jpg');
     return (
       <TouchableHighlight underlayColor={silver} onPress={this.navigateToDetail}>
         <View style={styles.bookContainer}>
-          <Image source={imageSource} style={styles.bookImg} />
+          <Image source={this.imageUri} style={styles.bookImg} />
           <View style={styles.textContainer}>
             <View style={styles.bookInfo}>
               <Text style={styles.bookTitle}>{title}</Text>
               <Text style={styles.bookAuthor}>{author}</Text>
             </View>
-            <CustomButton icon={require('./assets/arrow.png')} onPress={this.navigateToDetail} />
+            <CustomButton icon={icon} onPress={this.navigateToDetail} />
           </View>
         </View>
       </TouchableHighlight>

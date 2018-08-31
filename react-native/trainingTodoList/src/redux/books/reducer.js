@@ -17,7 +17,7 @@ const initialState = completeState({
 });
 
 const reducerDescriptor = {
-  primaryActions: [actionTypes.GET_ALL, actionTypes.GET_BY_ID]
+  primaryActions: [actionTypes.GET_ALL]
 };
 
 export default createReducer(Immutable(initialState), completeReducer(reducerDescriptor));

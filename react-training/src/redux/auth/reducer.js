@@ -1,37 +1,14 @@
+import { createReducer, completeState, completeReducer, onReadValue } from 'redux-recompose';
+import Immutable from 'seamless-immutable';
+
 import { actionTypes } from '../auth/action';
 
-const initialState = {
-  isAuth: false,
-  user: null,
-  loggingIn: false
+const initialState = completeState({ auth: null });
+
+const reducerDescriptor = {
+  primaryActions: [actionTypes.LOGIN_REQUEST],
+  [actionTypes.SET_AUTHENTICATION]: onReadValue(),
+  [actionTypes.LOG_OUT]: onReadValue()
 };
 
-export default function reducer(state = {}, action) {
-  const { payload } = action;
-  switch (action.type) {
-    case actionTypes.SET_AUTHENTICATION:
-      return { ...state, isAuth: payload.isAuth, ...payload };
-    case actionTypes.LOGIN_REQUEST:
-      return {
-        ...state,
-        loggingIn: true,
-        isAuth: false,
-        authError: false,
-        user: action.payload
-      };
-    case actionTypes.LOGIN_SUCCESS:
-      return {
-        ...state,
-        isAuth: true,
-        loggingIn: false,
-        authError: false,
-        user: action.payload
-      };
-    case actionTypes.LOGIN_FAILURE:
-      return { ...state, authError: true, loggingIn: false };
-    case actionTypes.LOG_OUT:
-      return { ...state, authError: false, loggingIn: false, isAuth: false };
-    default:
-      return state;
-  }
-}
+export default createReducer(Immutable(initialState), completeReducer(reducerDescriptor));

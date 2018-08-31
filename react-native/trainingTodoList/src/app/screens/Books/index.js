@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
 
 import BookList from './components/BookList';
 
@@ -10,12 +9,7 @@ class Books extends Component {
   };
 
   render() {
-    console.log('book props', this.props);
-    return (
-      <View>
-        <BookList navigateToDetail={this.navigateToDetail} />
-      </View>
-    );
+    return <BookList navigateToDetail={this.navigateToDetail} />;
   }
 }
 
